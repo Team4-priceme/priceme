@@ -2,20 +2,22 @@ var request = require('request');
 var sprintf = require("sprintf-js").sprintf,
     vsprintf = require("sprintf-js").vsprintf;
 
-function cacheCars(make, model, yearMin, yearMax){
+function cacheCars(make, model, yearMin, yearMax, callback){
   var requestURL = sprintf('https://trademe-api-proxy.herokuapp.com/v1/Search/Motors/Used.json?make=%s&model=%s&year_max=%d&year_min=%d', make, model, yearMax, yearMin);
-  console.log(requestURL);
   request(requestURL, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var cars = JSON.parse(body)['List'];
-      console.log(cars);
-      return cars;
+      callback(cars);
     }
   })
 }
 
-var cars = cacheCars('toyota', 'rav4', 2000, 2014);
-console.log(cars);
+function test(cars){
+  console.log(cars)
+}
+
+cacheCars('toyota', 'rav4', 2000, 2014, test);
+
 /*
 for (i= 0; i < cars.length; i++) {
   car = cars[i]
