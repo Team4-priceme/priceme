@@ -12,10 +12,7 @@ function cacheCars(make, model, yearMin, yearMax){
   })
 }
 
-function retrieveCar(cars){
-  return cars
-}
-
+console.log(cacheCars('toyota', 'rx8', 1999, 2016))
 exports.cacheCars = cacheCars;
 /*
 
