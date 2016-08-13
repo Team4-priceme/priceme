@@ -8,7 +8,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
-
+app.get('retrieveCarInfo', function(req, res, make, model, yearMin, yearMax){
+  carInfo = cacheCars(make, model, yearMin, yearMax)
+  res.send(JSON.stringify(carInfo))
+});
 
 app.use(express.static(__dirname + '/views'));
 
