@@ -13,3 +13,8 @@
 .button:hover {
   background: #499397;
 }
+
+
+.button:focus {
+  background: #499397;
+}

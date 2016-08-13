@@ -1,6 +1,4 @@
-#headerdiv {
-	box-sizing: border-box;
-	height:73px;
+#header {
 	width: 100%;
 	background-color: #1E1E1E;
 	margin-top: -10px;
@@ -16,7 +14,8 @@
 }
 
 
-#main {
+#inputOuter {
+  padding: 25px;
 }
 
 #inputWrap {
@@ -54,6 +53,10 @@
 
 #inputArea *:first-child {
   margin-left: 0;
+}
+
+#searchButton {
+  font-size: 20px;
 }
 
 
