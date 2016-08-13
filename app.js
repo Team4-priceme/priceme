@@ -46,7 +46,8 @@ app.get('/getUsedData', function(req, res){
         var jsonStr = JSON.stringify({info:{averageAsking:total/cars.length, averageBuyNow:0,  make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
       }
     }
-    res.send(jsonStr);
+    req.params = jsonStr;
+    console.log(req.params)
   });
 });
 
