@@ -4,6 +4,7 @@ var sprintf = require("sprintf-js").sprintf,
 
 function cacheCars(make, model, yearMin, yearMax, callback){
   var requestURL = sprintf('https://trademe-api-proxy.herokuapp.com/v1/Search/Motors/Used.json?make=%s&model=%s&year_max=%d&year_min=%d', make, model, yearMax, yearMin);
+  console.log(requestURL);
   request(requestURL, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var cars = JSON.parse(body)['List'];
