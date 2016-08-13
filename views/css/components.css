@@ -84,7 +84,6 @@
 
 #outputOuter {
   background: #EEEEEE;
-  height: 700px;
   width: 100%;
 }
 
@@ -117,6 +116,10 @@
 #rightWindow {
   flex-grow: 2;
   width: 200px;
+}
+
+#bottomWindow {
+  width: 100%;
 }
 
 
