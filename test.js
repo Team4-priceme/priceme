@@ -17,8 +17,8 @@ function test(cars){
 }
 
 cacheCars('toyota', 'rav4', 2000, 2014, test);
-
 /*
+
 for (i= 0; i < cars.length; i++) {
   car = cars[i]
   console.log(car['ListingId']);
