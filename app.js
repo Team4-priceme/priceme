@@ -10,9 +10,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/getCarData', function(req, res){
-  console.log('hey');
   var make = "Toyota";
-  var model = "RAV4";
+  var model = "";
   var yearMin = 0;
   var yearMax = 2016;
 
@@ -21,8 +20,8 @@ app.get('/getCarData', function(req, res){
     var total = 0;
     for (var i=0; i < cars.length; i++) {
       count += 1;
-      cars[i].Price = cars[i].PriceDisplay.replace(/,/g, "").slice(15);
-      total += parseInt(cars[i].Price);
+      cars[i].Price = parseInt(cars[i].PriceDisplay.replace(/\D/g, ""));
+      total += cars[i].Price;
     }
     if (total === 0) {
       var jsonStr = JSON.stringify({info:{average:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
