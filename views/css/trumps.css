@@ -1,7 +1,41 @@
 html, body {
-  background: #2A333B;
+	margin: 0;
+	padding: 0;
 }
 
-h1 {
-  color: white;
+body{
+	background-image: url('https://static.pexels.com/photos/125514/pexels-photo-125514.jpeg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+}
+
+
+#headerdiv {
+	box-sizing: border-box;
+	height:73px;
+	width: 100%;
+	background-color: #1E1E1E;
+	margin-top: -10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#title {
+	color: white;
+	font-weight: 300;
+	margin: 0;
+	padding: 15px;
+}
+
+
+.main {
+}
+
+.footer{
+	background-color: #7F7F7F;
+	bottom: 0;
+	height:60px;
+	position: absolute;
+	width: 100%;
 }
