@@ -1,3 +1,15 @@
 .blue {
   color: #56ACB2;
 }
+
+.button {
+  background: #55ACB1;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  padding: 15px 25px;
+}
+
+.button:hover {
+  background: #499397;
+}

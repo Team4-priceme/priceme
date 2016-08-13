@@ -1,0 +1,66 @@
+#headerdiv {
+	box-sizing: border-box;
+	height:73px;
+	width: 100%;
+	background-color: #1E1E1E;
+	margin-top: -10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#title {
+	color: white;
+	font-weight: 300;
+	margin: 0;
+	padding: 15px;
+}
+
+
+#main {
+}
+
+#inputWrap {
+  background: rgba(30,30,30, 0.6);
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 120px;
+  padding: 30px;
+  width: 1000px;
+}
+
+#tagline {
+  color: white;
+  font-size: 32px;
+  font-weight: 300;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#inputArea {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#inputArea * {
+  flex-grow: 2;
+  margin-left: 25px;
+}
+
+#inputArea #searchButton {
+  flex-grow: 0;
+}
+
+#inputArea *:first-child {
+  margin-left: 0;
+}
+
+
+#footer {
+	background-color: #1E1E1E;
+	bottom: 0;
+	height:60px;
+	position: absolute;
+	width: 100%;
+}

@@ -2,19 +2,32 @@
 <html>
   <head>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/generic.css">
+    <link rel="stylesheet" type="text/css" href="css/elements.css">
     <link rel="stylesheet" type="text/css" href="css/objects.css">
+    <link rel="stylesheet" type="text/css" href="css/components.css">
     <link rel="stylesheet" type="text/css" href="css/trumps.css">
     <title>priceme</title>
   </head>
 
   <body>
-    <div class='main'>
+    <div id='main'>
       <div id='headerdiv'>
         <h1 id='title'>price<span class='blue'>me</span></h1>
       </div>
 
 
-      <div class="footer">
+      <div id='inputWrap'>
+        <p id='tagline'>What is the average selling price for...</p>
+        <div id='inputArea'>
+          <input id='makeText' placeholder='Brand(e.g. Ford)' type='text'>
+          <input id='modelText' placeholder='Model' type='text'>
+          <input id='yearText' placeholder='Year' type='text'>
+          <a id='searchButton' class='button'>Search</a>
+        </div>
+      </div>
+
+      <div id="footer">
 
       </div>
     </div>
