@@ -20,7 +20,7 @@ app.get('/sendingData', function(req, res){
   console.log(val);*/
 });
 
-app.get('/getCarData', function(req, res){
+app.get('/getUsedData', function(req, res){
   getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
     var count = 0;
     var total = 0;
