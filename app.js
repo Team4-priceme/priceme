@@ -22,18 +22,27 @@ app.get('/sendingData', function(req, res){
 
 app.get('/getUsedData', function(req, res){
   getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
-    var count = 0;
+    var buyCount = 0;
+    var buyTotal= 0;
     var total = 0;
     for (var i=0; i < cars.length; i++) {
-      count += 1;
+      if (cars[i].hasOwnProperty('BuyNowPrice')) {
+        buyCount += 1;
+        buyTotal += cars[i].BuyNowPrice
+      }
       cars[i].Price = parseInt(cars[i].PriceDisplay.replace(/\D/g, ""));
       total += cars[i].Price;
     }
     if (total === 0) {
-      var jsonStr = JSON.stringify({info:{average:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+      var jsonStr = JSON.stringify({info:{averageAsking:0, averageBuyNow:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
     }
     else {
-      var jsonStr = JSON.stringify({info:{average:total/count, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+      if (buyTotal != 0) {
+        var jsonStr = JSON.stringify({info:{averageAsking:total/cars.length, averageBuyNow:buyTotal/buyCount,  make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+      }
+      else {
+        var jsonStr = JSON.stringify({info:{averageAsking:total/cars.length, averageBuyNow:0,  make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+      }
     }
     res.send(jsonStr);
   });
