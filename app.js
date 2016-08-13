@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var getData = require("./getData.js");
+var getData = require("./public/javascript/getData.js");
 
 var app = express();
 
