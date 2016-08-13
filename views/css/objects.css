@@ -18,3 +18,10 @@
 .button:focus {
   background: #499397;
 }
+
+.window {
+  background: #FFFFFF;
+  border: #DFDFDF solid 2px;
+  display: inline-block;
+  padding: 10px;
+}

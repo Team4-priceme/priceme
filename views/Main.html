@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>priceme</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/generic.css">
     <link rel="stylesheet" type="text/css" href="css/elements.css">
     <link rel="stylesheet" type="text/css" href="css/objects.css">
     <link rel="stylesheet" type="text/css" href="css/components.css">
     <link rel="stylesheet" type="text/css" href="css/trumps.css">
-    <title>priceme</title>
   </head>
 
   <body>
-    <div id='header'>
-      <h1 id='title'>price<span class='blue'>me</span></h1>
-    </div>
-
     <div id='inputOuter'>
+      <div id='header'>
+        <h1 id='title'>price<span class='blue'>me</span></h1>
+      </div>
+
       <div id='inputWrap'>
         <p id='tagline'>What is the average selling price for...</p>
         <div id='inputArea'>
@@ -27,10 +31,20 @@
       </div>
     </div>
 
-    <div id=''>
+    <div id='outputOuter'>
+      <div id='outputWrap'>
+        <div id='leftWindow' class='window'>
+          <p>Results for:</p>
+          <p>Ford Focus Trend 2014</p>
+          <p id='price' class='blue'>$3,784</p>
+        </div>
+        <div id='rightWindow' class='window'>
+        </div>
+      </div>
+    </div>
 
     <div id="footer">
-
+      <p>Built by <a class='blue' href='https://github.com/justinvos/priceme'>Team4</a></p>
     </div>
 
 

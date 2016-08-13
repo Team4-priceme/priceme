@@ -1,14 +1,18 @@
 
 @media (max-width: 1040px) {
-	#inputWrap {
+	#inputWrap, #outputWrap {
 		width: 100%;
 	}
 }
 
 @media (max-width: 840px) {
-	#inputWrap {
+	#inputWrap, #outputWrap {
 		margin: auto;
 		width: 500px;
+	}
+
+	#inputArea, #outputWrap {
+		flex-direction: column;
 	}
 
 	#tagline {
@@ -16,11 +20,10 @@
 	}
 
 	#inputArea {
-		flex-direction: column;
 		width: 100%;
 	}
 
-	#inputArea *, #inputArea *:first-child {
+	#inputArea *, #inputArea *:first-child, #outputWrap * {
 		margin-left: 0;
 		margin: 10px 0;
 		width: 100%;
@@ -33,7 +36,7 @@
 		padding: 30px 10px;
 	}
 
-	#inputWrap {
+	#inputWrap, #outputWrap {
 		padding: 30px 10px;
 		width: 100%;
 	}

@@ -1,4 +1,11 @@
+/*  =============
+    HEADER STYLES
+    ============= */
+
 #header {
+  position: absolute;
+  top: 0;
+  left: 0;
 	width: 100%;
 	background-color: #1E1E1E;
 	margin-top: -10px;
@@ -13,8 +20,19 @@
 	padding: 15px;
 }
 
+/*  =============
+    INPUT STYLES
+    ============= */
+
 
 #inputOuter {
+  background-image: url('https://static.pexels.com/photos/125514/pexels-photo-125514.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+
+
+  height: 100%;
   padding: 25px;
 }
 
@@ -47,7 +65,7 @@
   margin-left: 25px;
 }
 
-#inputArea #searchButton {
+#searchButton {
   flex-grow: 0;
 }
 
@@ -59,11 +77,57 @@
   font-size: 20px;
 }
 
+/*  =============
+    OUTPUT STYLES
+    ============= */
+
+
+#outputOuter {
+  background: #EEEEEE;
+  height: 700px;
+  width: 100%;
+}
+
+#outputWrap {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  padding: 15px;
+  width: 1000px;
+}
+
+#outputWrap * {
+  margin: 10px;
+}
+
+#leftWindow {
+  flex-grow: 1;
+  width: 100px;
+}
+
+#price {
+  font-size: 48px;
+  text-align: center;
+}
+
+#rightWindow {
+  flex-grow: 2;
+  width: 200px;
+}
+
+
+/*  =============
+    FOOTER STYLES
+    ============= */
 
 #footer {
 	background-color: #1E1E1E;
-	bottom: 0;
-	height:60px;
-	position: absolute;
 	width: 100%;
+}
+
+#footer p {
+  color: white;
+  font-size: 18px;
+  padding: 20px;
+  text-align: center;
 }
