@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var cars = require("./productDataRetrieval.js");
+var getData = require("./getData.js");
 
 var app = express();
 
@@ -9,17 +9,29 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
-app.get('/retrieveCarInfo', function(req, res){
+app.get('/getCarData', function(req, res){
+  console.log('hey');
   var make = "Toyota";
   var model = "RAV4";
   var yearMin = 0;
   var yearMax = 2016;
 
-  cars.cacheCars(make, model, yearMin, yearMax, function(cars) {
-    var jsonStr = JSON.stringify(cars);
+  getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
+    var count = 0;
+    var total = 0;
+    for (var i=0; i < cars.length; i++) {
+      count += 1;
+      cars[i].Price = cars[i].PriceDisplay.replace(/,/g, "").slice(15);
+      total += parseInt(cars[i].Price);
+    }
+    if (total === 0) {
+      var jsonStr = JSON.stringify({info:{average:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+    }
+    else {
+      var jsonStr = JSON.stringify({info:{average:total/count, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+    }
     res.send(jsonStr);
   });
-
 });
 
 app.use(express.static(__dirname + '/views'));
