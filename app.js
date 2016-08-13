@@ -12,16 +12,13 @@ app.get('/', function (req, res) {
 });
 
 app.get('/retrieveCarInfo', function(req, res){
-  console.log("hey");
   var make = "Toyota";
   var model = "RAV4";
   var yearMin = 0;
   var yearMax = 2016;
 
   cars.cacheCars(make, model, yearMin, yearMax, function(cars) {
-    console.log("hey2");
     var jsonStr = JSON.stringify(cars);
-    console.log(jsonStr);
     res.send(jsonStr);
   });
 
