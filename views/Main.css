@@ -1,0 +1,24 @@
+body{
+	
+	background-image: url('https://static.pexels.com/photos/125514/pexels-photo-125514.jpeg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	
+
+}
+
+
+#headerdiv{		
+	height:73px;
+	width: 100%;
+	background-color: #1E1E1E;
+	margin-top: -10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.footer{		
+	height:60px;
+	width: 100%;
+	background-color: #7F7F7F;
+	
+}
