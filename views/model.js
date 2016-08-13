@@ -10,8 +10,10 @@ function search(make, model, yearMin, yearMax){
       make:make, model:model, yearMin:yearMin, yearMax:yearMax
     },
     method: "GET",
-    success: function(res) {
-      console.log(res);
-    }
+    success(res);
   });
+}
+
+function success(res) {
+  console.log(res);
 }
