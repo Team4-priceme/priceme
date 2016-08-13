@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var cars = require("./productDataRetrieval.js");
 
 var app = express();
 
