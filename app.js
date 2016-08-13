@@ -4,21 +4,16 @@ var getData = require("./public/javascript/getData.js");
 
 var app = express();
 
-var make = "Toyota";
-var model = "RAV4";
-var yearMin = 0;
-var yearMax = 2016;
-
 app.get('/', function (req, res) {
   console.log("default entry point");
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
 app.get('/getUsedData', function(req, res){
-  make = req.query.params.make;
-  model = req.query.params.model;
-  make = req.query.params.make;
-  make = req.query.params.make;
+  var make = req.query.params.make;
+  var model = req.query.params.model;
+  var make = req.query.params.make;
+  var make = req.query.params.make;
 
   getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
     var buyCount = 0;
