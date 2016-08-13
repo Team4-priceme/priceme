@@ -14,15 +14,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
-app.get('/searching', function(req, res){
-  var val = req.query.sendingData
-  make = val.make;
-  model = val.model;
-  yearMin = val.yearMin;
-  yearMax = val.yearMax;
-});
-
 app.get('/getUsedData', function(req, res){
+  make = req.query.params.make;
+  model = req.query.params.model;
+  make = req.query.params.make;
+  make = req.query.params.make;
+
   getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
     var buyCount = 0;
     var buyTotal= 0;
@@ -46,8 +43,7 @@ app.get('/getUsedData', function(req, res){
         var jsonStr = JSON.stringify({info:{averageAsking:total/cars.length, averageBuyNow:0,  make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
       }
     }
-    req.params = jsonStr;
-    console.log(req.params)
+    res.send(jsonStr);
   });
 });
 
