@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 
 app.get('retrieveCarInfo', function(req, res, make, model, yearMin, yearMax){
   carInfo = cacheCars(make, model, yearMin, yearMax)
-  res.send(JSON.stringify(carInfo))
+  res.json(carInfo)
 });
 
 app.use(express.static(__dirname + '/views'));
