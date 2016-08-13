@@ -12,6 +12,14 @@
     <link rel="stylesheet" type="text/css" href="css/objects.css">
     <link rel="stylesheet" type="text/css" href="css/components.css">
     <link rel="stylesheet" type="text/css" href="css/trumps.css">
+
+<<<<<<< Updated upstream
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+=======
+    <!--Loads Chart JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+>>>>>>> Stashed changes
   </head>
 
   <body>
@@ -39,6 +47,32 @@
           <p id='price' class='blue'>$3,784</p>
         </div>
         <div id='rightWindow' class='window'>
+    <canvas id="startPrice" width="1920" height="1080"></canvas>
+    <canvas id="buyNowPrice" width="1920" height="1080"></canvas>
+
+    <canvas id="trendGraph" width="1920" height="1080"></canvas>
+
+    <script src="charts.js">
+    </script>
+    <script>
+    $(document).ready(function(){
+      $("#buyNowPrice").hide();
+
+    $("#showStartPrice").click(function(){
+        $("#buyNowPrice").hide();
+        $("#startPrice").show();
+    });
+    $("#showBuyNowPrice").click(function(){
+        $("#buyNowPrice").show();
+        $("#startPrice").hide();
+    });
+});</script>
+
+
+    <button id="showStartPrice">Show Start Price</button>
+    <button id="showBuyNowPrice">Show Buy Now Price</button>
+
+
         </div>
       </div>
     </div>
@@ -51,5 +85,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="dropdown.js"></script>
     <script src="Main.js"></script>
+    <script src="model.js"></script>
   </body>
 </html>
