@@ -15,9 +15,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/searching', function(req, res){
-  /*http://mherman.org/blog/2013/10/20/handling-ajax-calls-with-node-dot-js-and-express-scraping-craigslist/#.V67mmCh97IU
   var val = req.query.sendingData
-  console.log(val);*/
+  make = val.make;
+  model = val.model;
+  yearMin = val.yearMin;
+  yearMax = val.yearMax;
 });
 
 app.get('/getUsedData', function(req, res){
