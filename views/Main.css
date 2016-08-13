@@ -11,7 +11,7 @@ body{
 }
 
 
-#headerdiv{
+#headerdiv {
 	box-sizing: border-box;
 	height:73px;
 	width: 100%;
@@ -20,11 +20,21 @@ body{
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+#title {
+	color: white;
+	margin: 0;
+	padding: 15px;
+}
+
+
 .main {
 }
 
 .footer{
-	height:60px;
 	background-color: #7F7F7F;
-
+	bottom: 0;
+	height:60px;
+	position: absolute;
+	width: 100%;
 }
