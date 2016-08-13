@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 
 app.get('/getCarData', function(req, res){
   var make = "Toyota";
-  var model = "";
+  var model = "RAV4";
   var yearMin = 0;
   var yearMax = 2016;
 
