@@ -1,32 +1,18 @@
 
 @media (max-width: 1040px) {
-	#inputWrap, #outputWrap {
+	#outputWrap {
 		width: 100%;
 	}
 }
 
 @media (max-width: 840px) {
-	#inputWrap, #outputWrap {
+	#outputWrap {
 		margin: auto;
 		width: 500px;
 	}
 
-	#inputArea, #outputWrap {
+	#outputWrap {
 		flex-direction: column;
-	}
-
-	#tagline {
-		font-size: 22px;
-	}
-
-	#inputArea {
-		width: 100%;
-	}
-
-	#inputArea *, #inputArea *:first-child, #outputWrap * {
-		margin-left: 0;
-		margin: 10px 0;
-		width: 100%;
 	}
 }
 
@@ -36,12 +22,15 @@
 		padding: 30px 10px;
 	}
 
-	#inputWrap, #outputWrap {
-		padding: 30px 10px;
+	#outputWrap {
+		width: 100%;
+	}
+
+	#inputWrap {
 		width: 100%;
 	}
 
 	#inputArea {
-		width: 100%;
+		margin: 0 10px;
 	}
 }
