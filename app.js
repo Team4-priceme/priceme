@@ -10,9 +10,20 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
-app.get('retrieveCarInfo', function(req, res, make, model, yearMin, yearMax){
-  carInfo = cacheCars(make, model, yearMin, yearMax)
-  res.json(carInfo)
+app.get('/retrieveCarInfo', function(req, res){
+  console.log("hey");
+  var make = "Toyota";
+  var model = "RAV4";
+  var yearMin = 0;
+  var yearMax = 2016;
+
+  cars.cacheCars(make, model, yearMin, yearMax, function(cars) {
+    console.log("hey2");
+    var jsonStr = JSON.stringify(cars);
+    console.log(jsonStr);
+    res.send(jsonStr);
+  });
+
 });
 
 app.use(express.static(__dirname + '/views'));
