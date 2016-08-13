@@ -10,17 +10,23 @@
   </head>
   <body>
     <h1>priceme</h1>
-    <canvas id="myChart" width="200" height="100"></canvas>
+    <canvas id="myChart" width="1920" height="1080"></canvas>
+    <label for = "myChart">
+    Stand in Chart Title<br />
+    <canvas></canvas>
+
+
+</label>
     <script>
     
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [12, 19, 3, 5, 2, 3, 6],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
