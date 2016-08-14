@@ -145,7 +145,7 @@ var ctx = document.getElementById("startPrice");
 
 
 
-    
+
     //Javascript object and assign variables. var_data1=
 
     /*
@@ -159,7 +159,7 @@ var ctx = document.getElementById("startPrice");
     */
     //var chartData1 = apiObject.data1;
     //apiObject.data1 going into dataset.
-    
+
     var ctx = document.getElementById("trendGraph");
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -196,7 +196,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Price for a '+ apiObject.Make +" " + apiObject.Model + ', from 1st January to 31st July'
+                    text: 'Mean Price for a '+ apiObject.info.make +" " + apiObject.info.model + ', from 1st January to 31st July'
                     },
             scales: {
                 yAxes: [{
