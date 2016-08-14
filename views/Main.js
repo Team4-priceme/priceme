@@ -21,4 +21,6 @@ $(document).ready(function() {
 
 function onLoaded(data) {
   console.log("Loading");
+
+  chartData(data);
 }
