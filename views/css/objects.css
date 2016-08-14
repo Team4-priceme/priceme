@@ -31,6 +31,10 @@
   flex-direction: row;
 }
 
+.result p {
+  font-size: 16px;
+}
+
 .result .label {
   padding: 0;
 }

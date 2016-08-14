@@ -31,7 +31,7 @@ function onLoaded(data) {
   leftWindow.empty();
 
   leftWindow.append("<p>Results for:</p>");
-  leftWindow.append("<p>" + "Ford Focus Trend 2014" + "</p>");
+  leftWindow.append("<p>" + data.info.make + ' ' + data.info.model + ' ' + data.info.yearMin + '-' + data.info.yearMax + "</p>");
   leftWindow.append("<div class='result blue'><p>average price</p><p id='price' class='blue'>$" + Math.floor(data.info.averageAsking) + "</p></div>");
   leftWindow.append("<div class='result'><p>highest price</p><p id='price'>$" + Math.floor(data.info.max) + "</p></div>");
   leftWindow.append("<div class='result'><p>lowest price</p><p id='price'>$" + Math.floor(data.info.min) + "</p></div>");
