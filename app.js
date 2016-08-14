@@ -14,15 +14,17 @@ var model = "";
 var yearMin = "";
 var yearMax = "";
 
-app.get('/searching', function(req, res){
-  make = req.query.params.make;
-  model = req.query.params.model;
-  yearMin = req.query.params.yearMin;
-  yearMax = req.query.params.yearMax;
-})
-
 app.get('/getUsedData', function(req, res){
-  getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
+
+  make = req.query.make;
+  model = req.query.model;
+  yearMin = req.query.year_min;
+  yearMax = req.query.year_max;
+
+  console.log(make, model, yearMin, yearMax);
+
+  getData.getUsedCars(make, model, yearMin, yearMax, function(cars) {
+    console.log(1);
     var buyCount = 0;
     var buyTotal= 0;
     var total = 0;
@@ -34,6 +36,9 @@ app.get('/getUsedData', function(req, res){
       cars[i].Price = parseInt(cars[i].PriceDisplay.replace(/\D/g, ""));
       total += cars[i].Price;
     }
+
+    console.log(2);
+
     if (total === 0) {
       var jsonStr = JSON.stringify({info:{averageAsking:0, averageBuyNow:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
     }
@@ -45,6 +50,8 @@ app.get('/getUsedData', function(req, res){
         var jsonStr = JSON.stringify({info:{averageAsking:total/cars.length, averageBuyNow:0,  make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
       }
     }
+    console.log(3);
+
     res.send(jsonStr);
   });
 });

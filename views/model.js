@@ -6,9 +6,9 @@ var yearMax = 2016;
 function search(make, model, yearMin, yearMax) {
   $.ajax({
     dataType: 'json',
-    url: "/searching",
+    url: "/getUsedData",
     data: {
-      make:make, model:model, yearMin:yearMin, yearMax:yearMax
+      make:make, model:model, year_min:yearMin, year_max:yearMax
     },
     method: "GET",
     success: function(res) {
