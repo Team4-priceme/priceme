@@ -9,6 +9,7 @@ Chart.defaults.global.title.fontFamily = 'Open Sans';
 Chart.defaults.global.title.fontStyle = 'normal';
 Chart.defaults.global.title.padding = 25;
 
+
 var ctx = document.getElementById("startPrice");
 
     var startPrice = new Chart(ctx, {
@@ -19,7 +20,7 @@ var ctx = document.getElementById("startPrice");
             datasets: [{
                 label: 'Start Price',
                 yLabel: 'Per thousands',
-                data: [apiObject.info.averageAsking-5000, apiObject.info.averageAsking-2500, apiObject.info.averageAsking-1000, apiObject.info.averageAsking-2000, apiObject.info.averageAsking-1000, apiObject.info.averageAsking-500, apiObject.info.averageAsking],
+                data: getRandomNumbers(apiObject.info.averageAsking),
                 backgroundColor: [
                     'rgba(86, 172, 178, 0.2)',
                     'rgba(30, 30, 30, 0.2)',
@@ -84,7 +85,7 @@ var ctx = document.getElementById("startPrice");
             labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Current Date"],
             datasets: [{
                 label: 'Start Price',
-                data: [apiObject.info.averageBuyNow-3000, apiObject.info.averageBuyNow-1000, apiObject.info.averageBuyNow+100, apiObject.info.averageBuyNow-1000, apiObject.info.averageBuyNow, apiObject.info.averageBuyNow+500, apiObject.info.averageBuyNow+1000],
+                data: getRandomNumbers(apiObject.info.averageBuyNow),
                 backgroundColor: [
                     'rgba(30, 30, 30, 0.2)',
                     'rgba(86, 172, 178, 0.2)',
@@ -144,10 +145,10 @@ var ctx = document.getElementById("startPrice");
 
 
 
-    var ctx = document.getElementById("trendGraph");
+    
     //Javascript object and assign variables. var_data1=
 
-
+    /*
     var apiObject =
         {"ListingId":4769777,"Title":"Toyota RAV4 Gxl Suv 2013","Category":"0001-0268-0334-","StartPrice":0,"StartDate":"/Date(1470972287093)/","EndDate":"/Date(1471145087093)/",
         "ListingLength":null,"IsFeatured":true,"IsBold":true,"IsHighlighted":true,"AsAt":"/Date(1471061767311)/","CategoryPath":"/Trade-Me-Motors/Cars/Toyota","Region":"Auckland",
@@ -155,10 +156,11 @@ var ctx = document.getElementById("startPrice");
         "Doors":4,"EngineSize":2494,"Make":"Toyota","Model":"RAV4","Odometer":55996,"Year":2013,"Transmission":"Automatic","Fuel":"Petrol","NumberPlate":"HCC865",
         "BestContactTime":"Any time","Cylinders":0,"Owners":2,"Vin":null,"WofExpires":"/Date(0)/","RegistrationExpires":"/Date(0)/","StereoDescription":"",
         "ExteriorColour":"Silver","ImportHistory":"0","IsDealer":false};
-
+    */
     //var chartData1 = apiObject.data1;
     //apiObject.data1 going into dataset.
-
+    
+    var ctx = document.getElementById("trendGraph");
     var myChart = new Chart(ctx, {
         type: 'line',
 
@@ -166,7 +168,7 @@ var ctx = document.getElementById("startPrice");
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [{
                 label: 'Start Price',
-                data: [10, 19, 3, 5, 2, 3, 6],
+                data: [apiObject.info.averageAsking*1.2, apiObject.info.averageAsking*3.0, apiObject.info.averageAsking*0.6, apiObject.info.averageAsking*0.65, apiObject.info.averageAsking*0.7, apiObject.info.averageAsking*0.9, apiObject.info.averageAsking],
                 backgroundColor: [
                     'rgba(86, 172, 178, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
