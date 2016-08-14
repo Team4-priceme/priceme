@@ -17,3 +17,8 @@ $(document).ready(function() {
     search(brand, model, yearmin, yearmax);
   });
 });
+
+
+function onLoaded(data) {
+  console.log("Loading");
+}

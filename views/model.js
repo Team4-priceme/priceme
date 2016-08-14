@@ -12,7 +12,7 @@ function search(make, model, yearMin, yearMax) {
     },
     method: "GET",
     success: function(res) {
-      onSuccess(res);
+      onLoaded(res);
     }
   });
 }
