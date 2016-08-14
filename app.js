@@ -9,16 +9,19 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
+var make = "";
+var model = "";
+var yearMin = "";
+var yearMax = "";
+
 app.get('/searching', function(req, res){
-  var make = req.query.params.make;
-  var model = req.query.params.model;
-  var make = req.query.params.make;
-  var make = req.query.params.make;
+  make = req.query.params.make;
+  model = req.query.params.model;
+  yearMin = req.query.params.yearMin;
+  yearMax = req.query.params.yearMax;
 })
 
 app.get('/getUsedData', function(req, res){
-
-
   getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
     var buyCount = 0;
     var buyTotal= 0;
