@@ -9,19 +9,14 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
-var make = "";
-var model = "";
-var yearMin = "";
-var yearMax = "";
-
 app.get('/getUsedData', function(req, res){
 
-  make = req.query.make;
-  model = req.query.model;
-  yearMin = req.query.year_min;
-  yearMax = req.query.year_max;
+  var make = req.query.make;
+  var model = req.query.model;
+  var yearMin = req.query.year_min;
+  var yearMax = req.query.year_max;
 
-  console.log(make, model, yearMin, yearMax);
+  console.log('Requesting:', make, model, yearMin, yearMax);
 
   getData.getUsedCars(make, model, yearMin, yearMax, function(jsonStr) {
     res.send(jsonStr);
