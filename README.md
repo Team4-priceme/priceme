@@ -8,7 +8,7 @@ Through the use of displaying otherwise unavailable data, consumers will be able
 
 From both a buyers and sellers standpoint- our app will provide safety for both parties with each knowing they are getting a fair price and a fair deal. Just the way we Kiwi's like it.
 
-#### Check it out online at [https://radiant-shelf-68264.herokuapp.com/](https://radiant-shelf-68264.herokuapp.com/).
+#### Check it out online at [https://salty-shore-13998.herokuapp.com/](https://salty-shore-13998.herokuapp.com/).
 
 ## Technology
 - **Node.js** was used for handling GET and POST requests on the back-end.
