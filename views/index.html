@@ -64,7 +64,7 @@
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-   
+
     <script src="Main.js"></script>
     <script src="model.js"></script>
 
@@ -76,11 +76,12 @@
 
         $("#showStartPrice").click(function(){
             $("#buyNowPrice").hide();
-            $("#startPrice").show();
+            $("#startPrice").fadeIn(2000);
         });
         $("#showBuyNowPrice").click(function(){
-            $("#buyNowPrice").show();
             $("#startPrice").hide();
+            $("#buyNowPrice").fadeIn(2000);
+
         });
       });
     </script>
