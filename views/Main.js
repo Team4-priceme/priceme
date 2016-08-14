@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
   $("#searchButton").click(function() {
-    $("html, body").animate({ scrollTop: $('#outputOuter').offset().top }, 1500);
+
   	var brand = $("#makeText").val();
   	var model =$("#modelText").val();
   	var year =$("#yearText").val();
@@ -22,6 +22,9 @@ $(document).ready(function() {
 function onLoaded(data) {
   console.log("Loading");
   console.log(data);
+
+  $("#outputOuter").show();
+  $("html, body").animate({ scrollTop: $('#outputOuter').offset().top }, 1500);
 
   var leftWindow = $("#leftWindow");
 
