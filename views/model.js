@@ -3,15 +3,15 @@ var model = "RAV4";
 var yearMin = 0;
 var yearMax = 2016;
 
-function search(make, model, yearMin, yearMax){
+function search(make, model, yearMin, yearMax) {
   $.ajax({
-    dataType: 'json'
+    dataType: 'json',
     url: "/getUsedData",
     data: {
       make:make, model:model, yearMin:yearMin, yearMax:yearMax
     },
     method: "GET",
-    success(res);
+    success: success(res)
   });
 }
 
