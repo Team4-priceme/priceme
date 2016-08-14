@@ -9,10 +9,13 @@ $(document).ready(function() {
   	var yearmin= year.substring(0,dashposition);
   	var yearmax= year.substring(dashposition+1,year.length);
 
-		$('#search').on('keyup', function(e) {
+    console.log(model);
+		/*$('#search').on('keyup', function(e) {
 			if(e.keyCode === 13) {
 				var parameters = { brand,model,yearmin,yearmax};
       }
-    });
+    });*/
+
+    search(brand, model, yearmin, yearmax);
   });
 });
