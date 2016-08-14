@@ -228,3 +228,15 @@ var ctx = document.getElementById("startPrice");
 
 
 }
+
+
+function getRandomNumbers(realNum) {
+  var out = [];
+
+  for(var i = 0; i < 7; i++) {
+    var rand = 0.6 * Math.random() + 0.7;
+    out.push(rand * realNum);
+  }
+
+  return out;
+}
