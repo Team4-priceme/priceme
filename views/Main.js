@@ -21,6 +21,17 @@ $(document).ready(function() {
 
 function onLoaded(data) {
   console.log("Loading");
+  console.log(data);
+
+  var leftWindow = $("#leftWindow");
+
+  leftWindow.empty();
+
+  leftWindow.append("<p>Results for:</p>");
+  leftWindow.append("<p>" + "Ford Focus Trend 2014" + "</p>");
+  leftWindow.append("<div class='result blue'><p>average price</p><p id='price' class='blue'>" + 3784 + "</p></div>");
+  leftWindow.append("<div class='result'><p>highest price</p><p id='price'>" + 4235 + "</p></div>");
+  leftWindow.append("<div class='result'><p>lowest price</p><p id='price'>" + 2537 + "</p></div>");
 
   chartData(data);
 }
