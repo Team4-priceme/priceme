@@ -16,7 +16,3 @@ function search(make, model, yearMin, yearMax) {
     }
   });
 }
-
-function onSuccess(res) {
-  console.log(res);
-}
