@@ -9,11 +9,15 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
-app.get('/getUsedData', function(req, res){
+app.get('/searching', function(req, res){
   var make = req.query.params.make;
   var model = req.query.params.model;
   var make = req.query.params.make;
   var make = req.query.params.make;
+})
+
+app.get('/getUsedData', function(req, res){
+
 
   getData.getUsedCars(make, model, yearMin, yearMax, function(cars){
     var buyCount = 0;
