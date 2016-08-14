@@ -46,7 +46,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Asking Price for'+ apiObject.info.model + " " + apiObject.info.make + ' week of xxx'
+                    text: 'Mean Asking Price for '+ apiObject.info.model + " " + apiObject.info.make + ', week ending Sunday 14th August'
                     },
             scales: {
                 yAxes: [{
@@ -69,7 +69,7 @@ var ctx = document.getElementById("startPrice");
                     }
                 }
             }
-            
+
         }
 
     });
@@ -112,7 +112,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Buy Now Price for' + apiObject.info.model + " " + apiObject.info.make + ' week of XXX'
+                    text: 'Mean Buy Now Price for a ' + apiObject.info.model + " " + apiObject.info.make + ', week ending Sunday 14th August'
                     },
             scales: {
                 yAxes: [{
@@ -135,30 +135,30 @@ var ctx = document.getElementById("startPrice");
                     }
                 }
             }
-            
+
         }
 
     });
-    
+
 
 
 
 
     var ctx = document.getElementById("trendGraph");
-    //Javascript object and assign variables. var_data1= 
+    //Javascript object and assign variables. var_data1=
 
-    
-    var apiObject = 
+
+    var apiObject =
         {"ListingId":4769777,"Title":"Toyota RAV4 Gxl Suv 2013","Category":"0001-0268-0334-","StartPrice":0,"StartDate":"/Date(1470972287093)/","EndDate":"/Date(1471145087093)/",
         "ListingLength":null,"IsFeatured":true,"IsBold":true,"IsHighlighted":true,"AsAt":"/Date(1471061767311)/","CategoryPath":"/Trade-Me-Motors/Cars/Toyota","Region":"Auckland",
         "Suburb":"Auckland City","NoteDate":"/Date(0)/","ReserveState":3,"IsClassified":true,"Subtitle":"dsfdsfdsfdsfds","PriceDisplay":"Asking price: $34,000","BodyStyle":"RV/SUV",
         "Doors":4,"EngineSize":2494,"Make":"Toyota","Model":"RAV4","Odometer":55996,"Year":2013,"Transmission":"Automatic","Fuel":"Petrol","NumberPlate":"HCC865",
         "BestContactTime":"Any time","Cylinders":0,"Owners":2,"Vin":null,"WofExpires":"/Date(0)/","RegistrationExpires":"/Date(0)/","StereoDescription":"",
         "ExteriorColour":"Silver","ImportHistory":"0","IsDealer":false};
-    
+
     //var chartData1 = apiObject.data1;
     //apiObject.data1 going into dataset.
-    
+
     var myChart = new Chart(ctx, {
         type: 'line',
 
@@ -194,7 +194,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Price for '+ apiObject.Make +" " + apiObject.Model + ' from 1st January to 31st July'
+                    text: 'Mean Price for a '+ apiObject.Make +" " + apiObject.Model + ', from 1st January to 31st July'
                     },
             scales: {
                 yAxes: [{
@@ -220,7 +220,7 @@ var ctx = document.getElementById("startPrice");
                     }
                 }
             }
-            
+
         }
 
     });
@@ -228,4 +228,3 @@ var ctx = document.getElementById("startPrice");
 
 
 }
-
