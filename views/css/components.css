@@ -115,6 +115,11 @@
   width: 100px;
 }
 
+#priceTitle {
+  font-size: 16px;
+  padding-top: 12px;
+}
+
 #price {
   font-size: 48px;
   text-align: center;
