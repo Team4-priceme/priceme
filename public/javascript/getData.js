@@ -5,7 +5,7 @@ var sprintf = require("sprintf-js").sprintf,
 function getUsedCars(make, model, yearMin, yearMax, callback){
 
   var options = {
-    url: sprintf('https://api.tmsandbox.co.nz/v1/Search/Motors/Used.json?make=%s&model=%s&year_max=%d&year_min=%d', make, model, yearMax, yearMin),
+    url: sprintf('https://api.trademe.co.nz/v1/Search/Motors/Used.json?make=%s&model=%s&year_max=%d&year_min=%d', make, model, yearMax, yearMin),
     headers: {
       'Authorization': sprintf('OAuth oauth_consumer_key=%s, oauth_signature_method="PLAINTEXT", oauth_signature=%s&', process.env.TOKEN, process.env.SECRET)
     }
@@ -41,8 +41,7 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
 
       callback(jsonStr);
     } else {
-      console.log(response.statusCode)
-      res.send(response.statusCode);
+      console.log(response.statusCode);
     }
   });
 }
