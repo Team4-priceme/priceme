@@ -41,7 +41,8 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
 
       callback(jsonStr);
     } else {
-      console.log(response.statusCode);
+      console.log(response.statusCode)
+      res.send(response.statusCode);
     }
   });
 }
