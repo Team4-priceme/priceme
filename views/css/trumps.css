@@ -5,25 +5,21 @@
 	}
 }
 
-@media (max-width: 840px) {
-	#outputWrap {
-		margin: auto;
-		width: 500px;
+@media (max-width: 600px) {
+	#windowWrap {
+		flex-direction: column;
 	}
 
-	#outputWrap {
-		flex-direction: column;
+	#windowWrap * {
+		width: 100%;
 	}
 }
 
 
 @media (max-width: 540px) {
+
 	#inputOuter {
 		padding: 30px 10px;
-	}
-
-	#outputWrap {
-		width: 100%;
 	}
 
 	#inputWrap {
@@ -32,5 +28,9 @@
 
 	#inputArea {
 		margin: 0 10px;
+	}
+
+	#outputWrap {
+		width: 100%;
 	}
 }
