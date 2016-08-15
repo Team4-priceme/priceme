@@ -21,7 +21,7 @@ From both a buyers and sellers standpoint- our app will provide safety for both 
 
 ## Want to try it yourself?
 
-Just clone this repository in your git client or run ```git clone https://github.com/justinvos/priceme.git```.
+Just clone this repository in your git client or run ```git clone https://github.com/Team4-priceme/priceme.git```.
 
 Once cloned, run ```node app``` in the cloned directory to launch the web server and finally, navigate to [localhost:3000](localhost:3000) using your web browser.
 
