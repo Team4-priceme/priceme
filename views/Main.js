@@ -32,9 +32,9 @@ function onLoaded(data) {
 
   leftWindow.append("<p>Results for:</p>");
   leftWindow.append("<p>" + data.make + ' ' + data.model + ' ' + data.yearMin + '-' + data.yearMax + "</p>");
-  leftWindow.append("<div class='result blue'><p id='priceTitle'>average price</p><p id='price' class='blue'>$" + Math.floor(data.averageAsking) + "</p></div>");
-  leftWindow.append("<div class='result'><p id='priceTitle'>highest price</p><p id='price'>$" + Math.floor(data.max) + "</p></div>");
-  leftWindow.append("<div class='result'><p id='priceTitle'>lowest price</p><p id='price'>$" + Math.floor(data.min) + "</p></div>");
+  leftWindow.append("<div class='result blue'><p id='priceTitle'>average price</p><p id='price' class='blue'>$" + data.averageAsking + "</p></div>");
+  leftWindow.append("<div class='result'><p id='priceTitle'>highest price</p><p id='price'>$" + data.max + "</p></div>");
+  leftWindow.append("<div class='result'><p id='priceTitle'>lowest price</p><p id='price'>$" + data.min + "</p></div>");
 
   chartData(data);
 }

@@ -18,7 +18,7 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
       var buyCount = 0;
       var buyTotal= 0;
       var total = 0;
-      var min = parseInt(cars[0].PriceDisplay.replace(/\D/g, ""));
+      var min = Math.floor(parseInt(cars[0].PriceDisplay.replace(/\D/g, "")));
       var max = min;
 
       for (var i=0; i < cars.length; i++) {
@@ -26,13 +26,13 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
           buyCount += 1;
           buyTotal += cars[i].BuyNowPrice
         }
-        cars[i].Price = parseInt(cars[i].PriceDisplay.replace(/\D/g, ""));
-        total += cars[i].Price;
-        if(cars[i].Price < min){
-          min = cars[i].Price;
+        var price = parseInt(cars[i].PriceDisplay.replace(/\D/g, ""));
+        total += price;
+        if(price < min){
+          min = Math.floor(price);
         }
-        else if(cars[i].Price > max){
-          max = cars[i].Price;
+        else if(price > max){
+          max = Math.floor(price);
         }
       }
 
@@ -41,10 +41,10 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
       }
       else {
         if (buyTotal != 0) {
-          var jsonStr = JSON.stringify({averageAsking:total/cars.length, averageBuyNow:buyTotal/buyCount, max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax});
+          var jsonStr = JSON.stringify({averageAsking:Math.floor(total/cars.length), averageBuyNow:Math.floor(buyTotal/buyCount), max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax});
         }
         else {
-          var jsonStr = JSON.stringify({averageAsking:total/cars.length, averageBuyNow:0, max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax});
+          var jsonStr = JSON.stringify({averageAsking:Math.floor(total/cars.length), averageBuyNow:0, max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax});
         }
       }
 
