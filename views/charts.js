@@ -235,10 +235,11 @@ var ctx = document.getElementById("startPrice");
 function getRandomNumbers(realNum) {
   var out = [];
 
-  for(var i = 0; i < 7; i++) {
+  for(var i = 0; i < 6; i++) {
     var rand = 0.6 * Math.random() + 0.7;
-    out.push(rand * realNum);
+    out.push(Math.floor(rand * realNum));
   }
+  out.push(realNum)
 
   return out;
 }
