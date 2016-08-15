@@ -29,7 +29,7 @@ Once cloned, run ```node app``` in the cloned directory to launch the web server
 - Matthew Kiernander
 - Shantelle Roulston
 - Andrew Spencer
-- Moana Stirling - sorry testing git
+- Moana Stirling
 - Justin Vos
 
 **And mentored by Sana Oshika**.
