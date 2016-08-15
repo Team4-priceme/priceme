@@ -37,14 +37,14 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
       }
 
       if (total === 0) {
-        var jsonStr = JSON.stringify({info:{averageAsking:0, averageBuyNow:0, max:0, min:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+        var jsonStr = JSON.stringify({averageAsking:0, averageBuyNow:0, max:0, min:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax});
       }
       else {
         if (buyTotal != 0) {
-          var jsonStr = JSON.stringify({info:{averageAsking:total/cars.length, averageBuyNow:buyTotal/buyCount, max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+          var jsonStr = JSON.stringify({averageAsking:total/cars.length, averageBuyNow:buyTotal/buyCount, max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax});
         }
         else {
-          var jsonStr = JSON.stringify({info:{averageAsking:total/cars.length, averageBuyNow:0, max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax}, cars:cars});
+          var jsonStr = JSON.stringify({averageAsking:total/cars.length, averageBuyNow:0, max:max, min:min, make:make, model:model, yearMin:yearMin, yearMax:yearMax});
         }
       }
 
