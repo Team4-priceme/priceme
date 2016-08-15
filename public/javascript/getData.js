@@ -24,7 +24,7 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
       for (var i=0; i < cars.length; i++) {
         if (cars[i].hasOwnProperty('BuyNowPrice')) {
           buyCount += 1;
-          buyTotal += cars[i].BuyNowPrice
+          buyTotal += cars[i].BuyNowPrice;
         }
         var price = parseInt(cars[i].PriceDisplay.replace(/\D/g, ""));
         total += price;
