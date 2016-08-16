@@ -84,6 +84,7 @@ function getLastWeek(){
 function getUsedCars(make, model, yearMin, yearMax, callback){
 
   var last24Hours = getLast24Hours();
+
   var lastWeek = getLastWeek();
 
   var options = [];
@@ -108,15 +109,16 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
 
   async.map(options, request, function(err, results) {
     if (err) throw(err);
-    for(var i = 0; i < results.length; i++){
+    var i = 0;
+    async.map(results, function(day){
 
       if (i === 0) {
         var date = last24Hours;
       } else{
-        var date = lastWeek[i];
+        var date = lastWeek[i-1];
       }
 
-      var cars = JSON.parse(results[i].body).List;
+      var cars = JSON.parse(day.body).List;
 
       var buyCount = 0;
       var buyTotal= 0;
@@ -129,7 +131,7 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
         totals.max = totals.min;
       }
 
-      for (var i=0; i < cars.length; i++) {
+      for (var j=0; j < cars.length; j++) {
         if (cars[i].hasOwnProperty('BuyNowPrice')) {
           buyCount += 1;
           buyTotal += cars[i].BuyNowPrice;
@@ -167,8 +169,8 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
         }
         dayInfo.push({averageAsking:Math.floor(total/cars.length), averageBuyNow:Math.floor(buyTotal/buyCount), max:max, min:min, date:date});
       }
-      console.log(dayInfo);
-    }
+      i++;
+    });
 
     if (totals.askingTotal === 0){
       var jsonStr = JSON.stringify({averageAsking:0, averageBuyNow:0, max:0, min:0, make:make, model:model, yearMin:yearMin, yearMax:yearMax, last24Hours:last24HoursData, lastWeek:lastWeekData});
@@ -177,8 +179,6 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
     } else{
       var jsonStr = JSON.stringify({averageAsking:Math.floor(totals.askingTotal/totals.askingCount), averageBuyNow:Math.floor(totals.buyTotal/totals.buyCount), max:totals.max, min:totals.min, make:make, model:model, yearMin:yearMin, yearMax:yearMax, dayInfo:dayInfo});
     }
-    console.log(dayInfo.length)
-    console.log(jsonStr);
     callback(jsonStr);
   })
 };
