@@ -4,7 +4,6 @@ var sprintf = require("sprintf-js").sprintf,
 
 function getPast24Hours(){
   var date = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
-  //console.log('24:', date.getTime());
   return date;
 }
 
@@ -14,7 +13,6 @@ function getPastWeek(){
   for(var i = 1; i < 7; i++){
     pastWeek.push(new Date(new Date().setDate(today-i)));
     pastWeek[i-1].setHours(0, 0, 0, 0);
-    //console.log(pastWeek[i-1].getTime());
   }
   return pastWeek;
 }
@@ -23,8 +21,9 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
 
   var past24Hours = getPast24Hours();
   var pastWeek = getPastWeek();
+
   var options = {
-    url: sprintf('https://api.trademe.co.nz/v1/Search/Motors/Used.json?make=%s&model=%s&year_max=%d&year_min=%d&date_from=%d&rows=500', make, model, yearMax, yearMin, past24Hours.getTime()),
+    url: sprintf('https://api.trademe.co.nz/v1/Search/Motors/Used.json?make=%s&model=%s&year_max=%d&year_min=%d&date_from=%s&rows=500&sort_order=ExpiryAsc', make, model, yearMax, yearMin, past24Hours.toUTCString()),
     headers: {
       'Authorization': sprintf('OAuth oauth_consumer_key=%s, oauth_signature_method="PLAINTEXT", oauth_signature=%s&', process.env.TOKEN, process.env.SECRET)
     }
@@ -41,6 +40,7 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
       var max = min;
 
       for (var i=0; i < cars.length; i++) {
+        console.log(cars[i].StartDate);//test
         if (cars[i].hasOwnProperty('BuyNowPrice')) {
           buyCount += 1;
           buyTotal += cars[i].BuyNowPrice;
