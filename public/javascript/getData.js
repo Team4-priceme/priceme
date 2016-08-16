@@ -40,7 +40,6 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
       var max = min;
 
       for (var i=0; i < cars.length; i++) {
-        console.log(cars[i].StartDate);//test
         if (cars[i].hasOwnProperty('BuyNowPrice')) {
           buyCount += 1;
           buyTotal += cars[i].BuyNowPrice;
