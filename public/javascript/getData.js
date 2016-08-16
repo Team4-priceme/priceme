@@ -36,8 +36,11 @@ function getUsedCars(make, model, yearMin, yearMax, callback){
       var buyCount = 0;
       var buyTotal= 0;
       var total = 0;
-      var min = Math.floor(parseInt(cars[0].PriceDisplay.replace(/\D/g, "")));
-      var max = min;
+
+      if (cars.length != 0){
+        var min = Math.floor(parseInt(cars[0].PriceDisplay.replace(/\D/g, "")));
+        var max = min;
+      }
 
       for (var i=0; i < cars.length; i++) {
         if (cars[i].hasOwnProperty('BuyNowPrice')) {
