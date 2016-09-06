@@ -2,6 +2,10 @@ var express = require('express');
 var path = require('path');
 var getData = require("./public/javascript/getData.js");
 
+var mongo = require('mongodb');
+var monk = require('monk');
+
+
 var app = express();
 
 app.get('/', function (req, res) {
@@ -9,17 +13,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
-app.get('/getUsedData', function(req, res){
+app.get('/getUsedData', function(req, res) {
+  var db = monk('localhost:27017/priceme');
+  var collection = db.get('usedcars');
 
-  var make = req.query.make;
-  var model = req.query.model;
-  var yearMin = req.query.year_min;
-  var yearMax = req.query.year_max;
-
-  console.log('Requesting:', make, model, yearMin, yearMax);
-
-  getData.getUsedCars(make, model, yearMin, yearMax, function(jsonStr) {
-    res.send(jsonStr);
+  collection.findOne({make: req.query.make, model: req.query.model},{},function(e,docs){
+    res.json(docs);
   });
 });
 
@@ -29,3 +28,5 @@ app.use(express.static(__dirname + '/views'));
 app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening on port 3000!');
 });
+
+module.exports = app;
