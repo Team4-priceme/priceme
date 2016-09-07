@@ -21,6 +21,14 @@ app.get('/update', function(req, res) {
   res.send('done');
 });
 
+app.get('/getUsedData', function(req, res) {
+  var db = monk('localhost:27017/priceme');
+  var collection = db.get('usedcars');
+  collection.findOne({make: req.query.make.toUpperCase(), model: req.query.model.toUpperCase(), year: {$lte:parseInt(req.query.yearMax), $gte:parseInt(req.query.yearMin)}},{},function(e,docs){
+    res.json(docs);
+  });
+});
+
 app.use(express.static(__dirname + '/views'));
 
 app.listen(process.env.PORT || 3000, function () {
