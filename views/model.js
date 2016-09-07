@@ -8,7 +8,7 @@ function search(make, model, yearMin, yearMax) {
     dataType: 'json',
     url: "/getUsedData",
     data: {
-      make:make, model:model, year_min:yearMin, year_max:yearMax
+      make:make, model:model, yearMin:yearMin, yearMax:yearMax
     },
     method: "GET",
     success: function(res) {

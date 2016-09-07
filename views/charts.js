@@ -1,8 +1,4 @@
 function chartData(data){
-console.log(data);
-
-var apiObject = data;
-
 
 Chart.defaults.global.title.fontSize = 16;
 Chart.defaults.global.title.fontFamily = 'Open Sans';
@@ -20,7 +16,7 @@ var ctx = document.getElementById("startPrice");
             datasets: [{
                 label: 'Start Price',
                 yLabel: 'Per thousands',
-                data: getRandomNumbers(apiObject.averageAsking),
+                data: getRandomNumbers(Math.floor(data.askingTotal/data.askingNum)),
                 backgroundColor: [
                     'rgba(86, 172, 178, 0.2)',
                     'rgba(30, 30, 30, 0.2)',
@@ -47,7 +43,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Asking Price for '+ apiObject.model + " " + apiObject.make + ', week ending Sunday 14th August'
+                    text: 'Mean Asking Price for '+ data.model + " " + data.make + ', week ending Sunday 14th August'
                     },
             scales: {
                 yAxes: [{
@@ -85,7 +81,7 @@ var ctx = document.getElementById("startPrice");
             labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Current Date"],
             datasets: [{
                 label: 'Start Price',
-                data: getRandomNumbers(apiObject.averageBuyNow),
+                data: getRandomNumbers(Math.floor(data.buyNowTotal/data.buyNowNum)),
                 backgroundColor: [
                     'rgba(30, 30, 30, 0.2)',
                     'rgba(86, 172, 178, 0.2)',
@@ -113,7 +109,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Buy Now Price for a ' + apiObject.model + " " + apiObject.make + ', week ending Sunday 14th August'
+                    text: 'Mean Buy Now Price for a ' + data.model + " " + data.make + ', week ending Sunday 14th August'
                     },
             scales: {
                 yAxes: [{
@@ -168,7 +164,7 @@ var ctx = document.getElementById("startPrice");
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [{
                 label: 'Start Price',
-                data: [apiObject.averageAsking*1.2, apiObject.averageAsking*3.0, apiObject.averageAsking*0.6, apiObject.averageAsking*0.65, apiObject.averageAsking*0.7, apiObject.averageAsking*0.9, apiObject.averageAsking],
+                data: getRandomNumbers(Math.floor(data.askingTotal/data.askingNum)),
                 backgroundColor: [
                     'rgba(86, 172, 178, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -196,7 +192,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Price for a '+ apiObject.make +" " + apiObject.model + ', from 1st January to 31st July'
+                    text: 'Mean Price for a '+ data.make +" " + data.model + ', from 1st January to 31st July'
                     },
             scales: {
                 yAxes: [{

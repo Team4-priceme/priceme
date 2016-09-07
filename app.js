@@ -13,11 +13,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });
 
+/*app.post('/updateuseddata', function(req, res) {
+  var db = monk('localhost:27017/priceme');
+  var collection = db.get('usedcars');
+  collection.findOne({make: req.query.make, model: req.query.model},{},function(e,docs){
+    res.json(docs);
+  });
+});*/
+
 app.get('/getUsedData', function(req, res) {
   var db = monk('localhost:27017/priceme');
   var collection = db.get('usedcars');
-
-  collection.findOne({make: req.query.make, model: req.query.model},{},function(e,docs){
+  collection.findOne({make: req.query.make, model: req.query.model, year: {$lte:parseInt(req.query.yearMax), $gte:parseInt(req.query.yearMin)}},{},function(e,docs){
     res.json(docs);
   });
 });
