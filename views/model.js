@@ -7,7 +7,7 @@ function search(make, model, yearMin, yearMax) {
     },
     method: "GET",
     success: function(res) {
-      onLoaded(res);
+      onLoaded(res, make, model, yearMin, yearMax);
     }
   });
 }

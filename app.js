@@ -80,7 +80,7 @@ function updateDatabaseMotorsUsed(data, date){
         model: data.List[i].Model.toUpperCase(),
         year: data.List[i].Year,
         date: date},
-        {$inc:{askingTotal:askingPrice, askingNum:1}}, {upsert: true}, function(err, result){
+        {$inc:{askingTotal:askingPrice, askingNum:1, buyNowTotal:0, buyNowNum:0}}, {upsert: true}, function(err, result){
         if(err != null){
           console.log(err);
         }
