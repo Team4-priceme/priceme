@@ -1,4 +1,4 @@
-function chartData(data, make, model){
+function chartData(averageAsking, averageBuyNow, make, model){
 
 Chart.defaults.global.title.fontSize = 16;
 Chart.defaults.global.title.fontFamily = 'Open Sans';
@@ -10,13 +10,12 @@ var ctx = document.getElementById("startPrice");
 
     var startPrice = new Chart(ctx, {
         type: 'bar',
-
         data: {
             labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Current Date"],
             datasets: [{
                 label: 'Start Price',
                 yLabel: 'Per thousands',
-                data: getRandomNumbers(data.averageAsking),
+                data: averageAsking,
                 backgroundColor: [
                     'rgba(86, 172, 178, 0.2)',
                     'rgba(30, 30, 30, 0.2)',
@@ -81,7 +80,7 @@ var ctx = document.getElementById("startPrice");
             labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Current Date"],
             datasets: [{
                 label: 'Start Price',
-                data: getRandomNumbers(data.averageBuyNow),
+                data: averageBuyNow,
                 backgroundColor: [
                     'rgba(30, 30, 30, 0.2)',
                     'rgba(86, 172, 178, 0.2)',
@@ -164,7 +163,7 @@ var ctx = document.getElementById("startPrice");
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [{
                 label: 'Start Price',
-                data: getRandomNumbers(data.averageAsking),
+                data: getRandomNumbers(10000),
                 backgroundColor: [
                     'rgba(86, 172, 178, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

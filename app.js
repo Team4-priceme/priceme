@@ -22,11 +22,13 @@ app.get('/update', function(req, res) {
 });
 
 app.get('/getUsedData', function(req, res) {
-  date = new Date()
-  date.setHours(0,0,0,0);
+  date = new Date();
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() - 7);
+  console.log(date);
   var db = monk('localhost:27017/priceme');
   var collection = db.get('usedcars');
-  collection.find({date:{$gte: date}, make: req.query.make.toUpperCase(), model: req.query.model.toUpperCase(), year: {$lte:parseInt(req.query.yearMax), $gte:parseInt(req.query.yearMin)}},{},function(e,docs){
+  collection.find({date: {$gte: date}, make: req.query.make.toUpperCase(), model: req.query.model.toUpperCase(), year: {$lte:parseInt(req.query.yearMax), $gte:parseInt(req.query.yearMin)}},{},function(e,docs){
     res.json(docs);
   });
 });
@@ -44,7 +46,6 @@ function getTrademeMotorsUsed(page, date, callback){
       'Authorization': sprintf('OAuth oauth_consumer_key=%s, oauth_signature_method="PLAINTEXT", oauth_signature=%s&', process.env.TOKEN, process.env.SECRET)
     }
   };
-
   request(options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       return callback(JSON.parse(body), date);
@@ -56,14 +57,11 @@ function getTrademeMotorsUsed(page, date, callback){
 
 function updateDatabaseMotorsUsed(data, date){
   for (var i = 0; i < data.List.length; i++) {
-
     var askingPrice = Math.floor(parseInt(data.List[i].PriceDisplay.replace(/\D/g, "")));;
 
     var db = monk('localhost:27017/priceme');
     var collection = db.get('usedcars');
-
     if(data.List[i].HasBuyNow){
-
       collection.update({
         make: data.List[i].Make.toUpperCase(),
         model: data.List[i].Model.toUpperCase(),
@@ -86,6 +84,7 @@ function updateDatabaseMotorsUsed(data, date){
         }
       });
     }
+    console.log("Database Updated From Page", data.Page);
   }
   if(data.PageSize * data.Page < data.TotalCount){
     getTrademeMotorsUsed(data.Page+1, updateDatabaseMotorsUsed)
