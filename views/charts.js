@@ -1,4 +1,4 @@
-function chartData(averageAsking, averageBuyNow, make, model, date){
+function chartData(averageAsking, averageBuyNow, make, model){
 
 Chart.defaults.global.title.fontSize = 16;
 Chart.defaults.global.title.fontFamily = 'Open Sans';
@@ -231,6 +231,8 @@ function getPastWeek(){
   _day = new Date().getDay();
   days = [];
   for (var i = 0; i < 7; i++) {
+    _day -= 1;
+    if(_day < 0){_day = 6;}
     switch(_day){
       case 0:
           day = "Sunday";
@@ -254,9 +256,8 @@ function getPastWeek(){
           day = "Saturday";
       }
       days.push(day);
-      _day -= 1;
-      if(_day < 0){_day = 6;}
   }
+  days.reverse();
   return days;
 }
 
