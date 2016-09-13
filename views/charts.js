@@ -1,17 +1,18 @@
-function chartData(averageAsking, averageBuyNow, make, model){
+function chartData(averageAsking, averageBuyNow, make, model, date){
 
 Chart.defaults.global.title.fontSize = 16;
 Chart.defaults.global.title.fontFamily = 'Open Sans';
 Chart.defaults.global.title.fontStyle = 'normal';
 Chart.defaults.global.title.padding = 25;
 
+var days = getPastWeek();
 
 var ctx = document.getElementById("startPrice");
 
     var startPrice = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Current Date"],
+            labels: days,
             datasets: [{
                 label: 'Start Price',
                 yLabel: 'Per thousands',
@@ -77,7 +78,7 @@ var ctx = document.getElementById("startPrice");
         type: 'bar',
 
         data: {
-            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Current Date"],
+            labels: days,
             datasets: [{
                 label: 'Start Price',
                 data: averageBuyNow,
@@ -226,6 +227,38 @@ var ctx = document.getElementById("startPrice");
 
 }
 
+function getPastWeek(){
+  _day = new Date().getDay();
+  days = [];
+  for (var i = 0; i < 7; i++) {
+    switch(_day){
+      case 0:
+          day = "Sunday";
+          break;
+      case 1:
+          day = "Monday";
+          break;
+      case 2:
+          day = "Tuesday";
+          break;
+      case 3:
+          day = "Wednesday";
+          break;
+      case 4:
+          day = "Thursday";
+          break;
+      case 5:
+          day = "Friday";
+          break;
+      case 6:
+          day = "Saturday";
+      }
+      days.push(day);
+      _day -= 1;
+      if(_day < 0){_day = 6;}
+  }
+  return days;
+}
 
 function getRandomNumbers(realNum) {
   var out = [];
