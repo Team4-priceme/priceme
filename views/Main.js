@@ -20,6 +20,18 @@ $(document).ready(function() {
 
 function onLoaded(data, make, model, yearMin, yearMax) {
   var date = new Date().getDate();
+
+  var min = data[0].min;
+  var max = data[0].max;
+  for (var i = 0; i < data.length; i++) {
+    if(data[i].min < min){
+      min = data[i].min
+    }
+    else if(data[i].max > max){
+      max = data[i].max
+    }
+  }
+
   var averageAsking = [];
   var averageBuyNow = [];
 
@@ -78,7 +90,7 @@ function onLoaded(data, make, model, yearMin, yearMax) {
   leftWindow.append("<p>Results for:</p>");
   leftWindow.append("<p>" + make + ' ' + model + ' ' + yearMin + '-' + yearMax + "</p>");
   leftWindow.append("<div class='result blue'><p id='priceTitle'>average price</p><p id='price' class='blue'>$" + totalAverage + "</p></div>");
-  leftWindow.append("<div class='result'><p id='priceTitle'>highest price</p><p id='price'>$" + 0 + "</p></div>");
-  leftWindow.append("<div class='result'><p id='priceTitle'>lowest price</p><p id='price'>$" + 0 + "</p></div>");
+  leftWindow.append("<div class='result'><p id='priceTitle'>highest price</p><p id='price'>$" + max + "</p></div>");
+  leftWindow.append("<div class='result'><p id='priceTitle'>lowest price</p><p id='price'>$" + min + "</p></div>");
   chartData(averageAsking, averageBuyNow, make, model);
 }

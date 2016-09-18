@@ -5,14 +5,14 @@ Chart.defaults.global.title.fontFamily = 'Open Sans';
 Chart.defaults.global.title.fontStyle = 'normal';
 Chart.defaults.global.title.padding = 25;
 
-var days = getPastWeek();
+var pastWeek = getPastWeek();
 
 var ctx = document.getElementById("startPrice");
 
     var startPrice = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: days,
+            labels: pastWeek.days,
             datasets: [{
                 label: 'Start Price',
                 yLabel: 'Per thousands',
@@ -43,7 +43,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Asking Price for '+ model + " " + make + ', week ending Sunday 14th August'
+                    text: 'Mean Asking Price for '+ make + " " + model + ', week ending ' + pastWeek.finalDate
                     },
             scales: {
                 yAxes: [{
@@ -78,7 +78,7 @@ var ctx = document.getElementById("startPrice");
         type: 'bar',
 
         data: {
-            labels: days,
+            labels: pastWeek.days,
             datasets: [{
                 label: 'Start Price',
                 data: averageBuyNow,
@@ -109,7 +109,7 @@ var ctx = document.getElementById("startPrice");
         options: {
             title: {
                     display: true,
-                    text: 'Mean Buy Now Price for a ' + model + " " + make + ', week ending Sunday 14th August'
+                    text: 'Mean Buy Now Price for a ' + make + " " + model + ', week ending ' + pastWeek.finalDate
                     },
             scales: {
                 yAxes: [{
@@ -228,12 +228,12 @@ var ctx = document.getElementById("startPrice");
 }
 
 function getPastWeek(){
-  _day = new Date().getDay();
-  days = [];
+  pastWeek = {days:[]};
+  date = new Date();
+  date.setDate(date.getDate()-8);
   for (var i = 0; i < 7; i++) {
-    _day -= 1;
-    if(_day < 0){_day = 6;}
-    switch(_day){
+    date.setDate(date.getDate()+1);
+    switch(date.getDay()){
       case 0:
           day = "Sunday";
           break;
@@ -255,10 +255,56 @@ function getPastWeek(){
       case 6:
           day = "Saturday";
       }
-      days.push(day);
+    pastWeek.days.push(day);
   }
-  days.reverse();
-  return days;
+  switch(date.getDate()){
+    case 1:
+    case 21:
+    case 31:
+      suffix = "st";
+      break;
+    default:
+      suffix = "th";
+  }
+  switch(date.getMonth()){
+    case 0:
+        month = "Jan";
+        break;
+    case 1:
+        month = "Feb";
+        break;
+    case 2:
+        month = "Mar";
+        break;
+    case 3:
+        month = "Apr";
+        break;
+    case 4:
+        month = "May";
+        break;
+    case 5:
+        month = "Jun";
+        break;
+    case 6:
+        month = "Jul";
+        break;
+    case 7:
+        month = "Aug";
+        break;
+    case 8:
+        month = "Sep";
+        break;
+    case 9:
+        month = "Oct";
+        break;
+    case 10:
+        month = "Nov";
+        break;
+    case 11:
+        month = "Dec";
+    }
+  pastWeek.finalDate = pastWeek.days[6] + " " + date.getDate().toString() + suffix + " " + month;
+  return pastWeek;
 }
 
 function getRandomNumbers(realNum) {

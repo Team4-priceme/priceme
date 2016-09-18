@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 
 app.get('/update', function(req, res) {
   updateMotorsUsed();
-  res.send('done');
+  res.send('Updating');
 });
 
 app.get('/getUsedData', function(req, res) {
@@ -67,7 +67,10 @@ function updateDatabaseMotorsUsed(data, date){
         model: data.List[i].Model.toUpperCase(),
         year: data.List[i].Year,
         date: date},
-        {$inc:{askingTotal:askingPrice, askingNum:1, buyNowTotal:data.List[i].BuyNowPrice, buyNowNum:1}}, {upsert: true}, function(err, result){
+        {$inc:{askingTotal:askingPrice, askingNum:1, buyNowTotal:data.List[i].BuyNowPrice, buyNowNum:1},
+        $min: {min: askingPrice},
+        $max: {max: askingPrice}},
+        {upsert: true}, function(err, result){
         if(err != null){
           console.log(err);
         }
@@ -78,7 +81,10 @@ function updateDatabaseMotorsUsed(data, date){
         model: data.List[i].Model.toUpperCase(),
         year: data.List[i].Year,
         date: date},
-        {$inc:{askingTotal:askingPrice, askingNum:1, buyNowTotal:0, buyNowNum:0}}, {upsert: true}, function(err, result){
+        {$inc:{askingTotal:askingPrice, askingNum:1, buyNowTotal:0, buyNowNum:0},
+        $min: {min: askingPrice},
+        $max: {max: askingPrice}},
+        {upsert: true}, function(err, result){
         if(err != null){
           console.log(err);
         }
@@ -97,5 +103,7 @@ function updateMotorsUsed(){
   date.setHours(0,0,0,0);
   getTrademeMotorsUsed(1, date, updateDatabaseMotorsUsed);
 }
+
+var scheduledUpdate = new schedule.scheduleJob({hour:0}, updateMotorsUsed);
 
 module.exports = app;
