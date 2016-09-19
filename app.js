@@ -25,7 +25,6 @@ app.get('/getUsedData', function(req, res) {
   date = new Date();
   date.setHours(0, 0, 0, 0);
   date.setDate(date.getDate() - 7);
-  console.log(date);
   var db = monk('localhost:27017/priceme');
   var collection = db.get('usedcars');
   collection.find({date: {$gte: date}, make: req.query.make.toUpperCase(), model: req.query.model.toUpperCase(), year: {$lte:parseInt(req.query.yearMax), $gte:parseInt(req.query.yearMin)}},{},function(e,docs){
