@@ -101,7 +101,7 @@
   width: 1000px;
 }
 
-#outputWrap * {
+#outputWrap > div {
   margin: 10px;
 }
 
