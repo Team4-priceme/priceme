@@ -119,6 +119,10 @@
   width: 100px;
 }
 
+#leftWindow * {
+  margin: 10px;
+}
+
 #priceTitle {
   font-size: 16px;
   padding-top: 12px;
