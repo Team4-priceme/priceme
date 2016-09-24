@@ -22,3 +22,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+canvas {
+  padding: 10px;
+}
