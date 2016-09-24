@@ -15,7 +15,7 @@
 
 #title {
 	color: white;
-	font-weight: 300;
+	font-weight: 600;
 	margin: 0;
 	padding: 15px;
 }
@@ -47,7 +47,7 @@
 #tagline {
   color: white;
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
   padding: 25px 0;
   text-align: center;
 }
@@ -76,6 +76,7 @@
 #searchButton {
   flex-grow: 0;
   text-align: center;
+  text-decoration: none;
   margin: 25px 0;
 }
 
@@ -107,11 +108,14 @@
 #windowWrap {
   display: flex;
   flex-direction: row;
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
 #leftWindow {
   flex-grow: 1;
+  margin-left: 0;
   width: 100px;
 }
 
@@ -127,10 +131,13 @@
 
 #rightWindow {
   flex-grow: 2;
+  margin-right: 0;
   width: 200px;
 }
 
 #bottomWindow {
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
