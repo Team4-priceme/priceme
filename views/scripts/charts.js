@@ -121,8 +121,7 @@ function chartData(data) {
 				}
 			}
 		}
-	}
-	);
+	});
 
 	//Javascript object and assign variables. var_data1=
 	/*
@@ -163,7 +162,7 @@ function chartData(data) {
           "rgba(255, 159, 64, 1)"
         ],
         borderWidth: 1
-			}];
+			}]
 		},
     options: {
 			title: {
