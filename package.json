@@ -14,9 +14,7 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
     "request": "~2.74.0",
-    "sprintf-js": "~1.0.3"
-  },
-  "devDependencies": {
+    "sprintf-js": "~1.0.3",
     "gulp": "^3.9.1",
     "gulp-exec": "^2.1.2",
     "gulp-run": "^1.7.1",
