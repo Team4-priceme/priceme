@@ -15,5 +15,10 @@
     "serve-favicon": "~2.3.0",
     "request": "~2.74.0",
     "sprintf-js": "~1.0.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "node-sass": "^3.10.0"
   }
 }
