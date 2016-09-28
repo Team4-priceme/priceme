@@ -1,10 +1,16 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
-var run = require("gulp-run");
+var child = require('child_process');
+var fs = require("fs");
 
-gulp.task("start", ["sass"], function() {
-	return run("npm start").exec()
-	.pipe(gulp.dest('logs'));
+gulp.task("default", ["start"]);
+
+gulp.task("start", ["sass"], function(cb) {
+	var server = child.spawn('node', ['app.js']);
+  var log = fs.createWriteStream('server.log', {flags: 'a'});
+  server.stdout.pipe(log);
+  server.stderr.pipe(log);
+	return;
 });
 
 gulp.task("sass", function() {
