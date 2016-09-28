@@ -1,3 +1,4 @@
 node_modules/
 data/
 views/styles/.sass-cache
+views/styles/*.css
