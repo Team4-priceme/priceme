@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #262B2F;
+  background: url("/bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  font-family: "Open Sans";
+  font-size: 20px;
+  height: 100%;
+}

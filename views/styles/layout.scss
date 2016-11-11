@@ -1,0 +1,24 @@
+$wrapperWidth: 100%;
+$contentWidth: 520px;
+
+.wrapper {
+	width: $wrapperWidth;
+}
+
+.content {
+	margin: 0 auto;
+	width: $contentWidth;
+}
+
+.page {
+	background: white;
+}
+
+@media (max-width: 480px) {
+	.wrapper {
+		padding: 0 10px;
+	}
+	.content {
+		width: 100%;
+	}
+}
